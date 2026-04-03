@@ -26,8 +26,16 @@ document.addEventListener("DOMContentLoaded",function(){
 
             //  console.log(e.target.id);
             mostrarAviso(`El campo ${e.target.id} es obligatorio`,e.target)
-            
+            return;
 
+        }
+        if(e.target.id ==="correo" && !validarEmail(e.target.value) ){
+            mostrarAviso(`El email ingresado en el campo ${e.target.id} es inválido`,e.target)
+            return;
+        }
+        else{
+            limpiarAviso(e.target.parentElement);
+            return;
         }
 
         
@@ -43,6 +51,15 @@ document.addEventListener("DOMContentLoaded",function(){
         // console.log(referencia.parentElement);
         referencia.parentElement.appendChild(avisoError);  // al e.target.parentElement, le agrego como elemento hijo el aviso que se acaba de crear
         
+    }
+
+    function validarEmail(email) {
+
+        const regex =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/ 
+        const resultado = regex.test(email); // test es un método especial para verificar expresiones regulares
+        
+
+        return resultado;
     }
 
     function limpiarAviso(referencia) {
