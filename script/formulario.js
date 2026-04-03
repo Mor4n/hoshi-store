@@ -35,7 +35,15 @@ document.addEventListener("DOMContentLoaded",function(){
 
         // mostrar aviso de éxito
 
-        // bloquear boton y desbloquear cuando estén todos los campos correctos
+        const exito = document.createElement("P");
+        exito.textContent="Correo enviado!";
+        formulario.appendChild(exito)
+
+        // timer para que se muestre el mensaje de exito
+        setTimeout(() => {
+            exito.remove();
+        }, 3000);
+
     }
 
 
