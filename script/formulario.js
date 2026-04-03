@@ -8,6 +8,14 @@ let inputArchivo = document.querySelector("#archivo");
 let inputSolicitud = document.querySelector("#solicitud");
 let btnSubmit = document.querySelector("#botonSubmit")
 
+// objeto correo
+let correo = {
+    nombre: "",
+    correo:"",
+    solicitud:"",
+}
+
+
 document.addEventListener("DOMContentLoaded",function(){
 
     // Validacion al momento de escribir en un input con "input"
@@ -35,6 +43,9 @@ document.addEventListener("DOMContentLoaded",function(){
         }
         else{
             limpiarAviso(e.target.parentElement);
+
+            
+
             return;
         }
 
