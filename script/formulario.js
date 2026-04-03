@@ -23,9 +23,44 @@ document.addEventListener("DOMContentLoaded",function(){
     inputNombre.addEventListener("blur",validarInput);
     inputCorreo.addEventListener("blur",validarInput);
     inputSolicitud.addEventListener("blur",validarInput);
+    formulario.addEventListener("submit",enviarCorreo);
 
 
     // Función para validar lo escrito en el input
+
+    function enviarCorreo(e) {
+        e.preventDefault();
+
+        resetFormulario();
+
+        // mostrar aviso de éxito
+
+        // bloquear boton y desbloquear cuando estén todos los campos correctos
+    }
+
+
+    function resetFormulario() {
+        formulario.reset();
+        correo["nombre"] = "";
+        correo["correo"] = "";
+        correo["solicitud"] = "";
+
+        comprobarEmail(); 
+    }
+
+       function comprobarEmail(){
+        // Object.values devuelve un arreglo, verifica con el array method de includes si alguno está vacio, si ninguno está vacío, entonecs que se pueda enviar el correo
+        let valores = Object.values(correo);
+        if(valores.includes("")){
+            btnSubmit.disabled=true;
+            btnSubmit.style.cursor ="default";
+            
+            return; // con return evito que pase lo de abajo de disabled false
+        }
+        // Si no pasó lo anterior, pasa esto
+        btnSubmit.disabled=false;
+        btnSubmit.style.cursor ="pointer";
+    }
 
     function validarInput(e) {
 
@@ -37,6 +72,8 @@ document.addEventListener("DOMContentLoaded",function(){
             correo[e.target.id] = ""; // quiero que el valor que tenga el id del input, que es igual a la clave que tengo en el objeto, sea vaico ya que no es correcto el valor que dio el usuario
             console.log(correo);
 
+             comprobarEmail(); 
+
             return;
 
         }
@@ -44,6 +81,10 @@ document.addEventListener("DOMContentLoaded",function(){
             mostrarAviso(`El email ingresado en el campo ${e.target.id} es inválido`,e.target);
             correo[e.target.id] = ""; // quiero que el valor que tenga el id del input, que es igual a la clave que tengo en el objeto, sea vaico ya que no es correcto el valor que dio el usuario
             console.log(correo);
+
+             comprobarEmail(); 
+
+
             return;
         }
         else{
@@ -52,6 +93,8 @@ document.addEventListener("DOMContentLoaded",function(){
             // Ya que fue validado correctamente, lo añado al input
             correo[e.target.id] = e.target.value;
             console.log(correo);
+
+             comprobarEmail(); 
             
 
             return;
