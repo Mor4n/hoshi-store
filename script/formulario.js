@@ -34,11 +34,16 @@ document.addEventListener("DOMContentLoaded",function(){
 
             //  console.log(e.target.id);
             mostrarAviso(`El campo ${e.target.id} es obligatorio`,e.target)
+            correo[e.target.id] = ""; // quiero que el valor que tenga el id del input, que es igual a la clave que tengo en el objeto, sea vaico ya que no es correcto el valor que dio el usuario
+            console.log(correo);
+
             return;
 
         }
         if(e.target.id ==="correo" && !validarEmail(e.target.value) ){
-            mostrarAviso(`El email ingresado en el campo ${e.target.id} es inválido`,e.target)
+            mostrarAviso(`El email ingresado en el campo ${e.target.id} es inválido`,e.target);
+            correo[e.target.id] = ""; // quiero que el valor que tenga el id del input, que es igual a la clave que tengo en el objeto, sea vaico ya que no es correcto el valor que dio el usuario
+            console.log(correo);
             return;
         }
         else{
