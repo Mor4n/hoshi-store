@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded",function(){
             // Quiere decir que está vacio, mostraré un aviso de que está vacio
 
             //  console.log(e.target.id);
-            mostrarAviso(e.target)
+            mostrarAviso(`El campo ${e.target.id} es obligatorio`,e.target)
             
 
         }
@@ -33,12 +33,25 @@ document.addEventListener("DOMContentLoaded",function(){
         
     }
 
-    function mostrarAviso(referencia) {
+    function mostrarAviso(mensaje, referencia) {
+
+        limpiarAviso(referencia.parentElement);
 
         const avisoError = document.createElement("P"); // creo elemento p
-        avisoError.textContent = `El campo ${referencia.id} es obligatorio`; // le añado el nombre del campo del que se acaba de salir como aviso de texto
+        avisoError.classList.add("aviso");
+        avisoError.textContent = mensaje; // le añado el nombre del campo del que se acaba de salir como aviso de texto
         // console.log(referencia.parentElement);
         referencia.parentElement.appendChild(avisoError);  // al e.target.parentElement, le agrego como elemento hijo el aviso que se acaba de crear
+        
+    }
+
+    function limpiarAviso(referencia) {
+        // Si ya está el aviso, que se elimine, esto pasará inclsuo si se quiere duplicar el aviso
+        const aviso = referencia.querySelector(".aviso");
+        if(aviso){
+            aviso.remove(); // quitamos el aviso
+        }
+
         
     }
 
