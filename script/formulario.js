@@ -44,6 +44,9 @@ document.addEventListener("DOMContentLoaded",function(){
         else{
             limpiarAviso(e.target.parentElement);
 
+            // Ya que fue validado correctamente, lo añado al input
+            correo[e.target.id] = e.target.value;
+            console.log(correo);
             
 
             return;
