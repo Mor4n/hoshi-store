@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Hoshi-Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="top-banner" id="encabezado"><!-- encabezado -->
+        <p>Envios gratis a partir de $500.00</p>
+    </header>
+
+    <nav id="navegacion"><!-- menu de navegacion -->
+        <h1 id="logo">
+            <a href="#encabezado"><img src="./img/logo.png" alt="Logo de Hoshi-Store" id="logo-img"></a>
+        </h1>
+
+
+        <ul class="navegacion-lista">
+            <li><a href="#catalogo">Catalogo</a></li>
+            <li><a href="#compra">Proceso de compra</a></li>
+            <li><a href="#sobre">Sobre nosotros</a></li>
+            <li><a href="#fotos">Fotos de la comunidad</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+
+        <div class="buscar-contenedor">
+            <input type="text" placeholder="Ingrese aquí el producto a buscar" id="buscar-input">
+            <button type="button" id="buscar-boton">
+                <img src="./img/lupa.png" alt="Ícono de lupa" id="buscar-imagen">
+            </button>
+        </div>
+
+        <div class="carrito-contenedor">
+            <button type="button" id="carrito-boton">
+                <img src="./img/carrito.png" alt="Imagen de carrito de compras" id="carrito-compras">
+            </button>
+            <div id="lista-compras-contenedor">
+                        <h2>Lista de compras</h2>
+                        <table id="lista-compras">
+                            <thead>
+                                <tr>
+                                    <th>Imagen</th>
+                                    <th>Producto</th>
+                                    <th>Precio</th>
+                                    <th></th>
+                                    <!-- este th final es para el botón de eliminar -->
+                            </thead>
+                            <!-- aqui voy a colocar cada producto -->
+                            <tbody id="compras-tbody">
+
+                            </tbody>
+
+                        </table>
+
+                        <button id="vaciar-lista">
+                            Vaciar lista de compras
+                        </button>
+
+                    </div>
+        </div>
+
+    </nav>
+
+
+    <main><!-- aquí empieza main -->
+
+        <div id="video-contenedor">
+            <div id="video-grisaceo">
+                <p id="video-texto">Somos Hoshi-Store</p>
+            </div>
+            <video src="./img/tienda-online.mp4" id="video-tienda" autoplay muted loop></video>
+        </div>
+
+        <section id="catalogo"><!-- catalogo -->
+            <h2>CATALOGO</h2>
+            <p>Compra productos que vienen de Japón, directo a la puerta de tu casa!</p>
+
+            <div class="catalogo-categorias">
+                <article class="catalogo-categoria">
+                    <p class="catalogo-categoria-texto">Manga</p>
+                </article>
+                <article class="catalogo-categoria">
+                    <p class="catalogo-categoria-texto">Figuras</p>
+                </article>
+                <article class="catalogo-categoria">
+                    <p class="catalogo-categoria-texto">Ropa</p>
+                </article>
+                <article class="catalogo-categoria">
+                    <p class="catalogo-categoria-texto">Accesorios</p>
+                </article>
+            </div>
+
+            <div class="catalogo-contenedor" id="manga">
+                <h3>Manga</h3>
+                <div class="catalogo-productos">
+
+                    <article class="producto-tarjeta">
+                        <img src="https://d14d9vp3wdof84.cloudfront.net/image/589816272436/image_ep3cqf6n3h56t1cnu6qq84oq78/-S897-FWEBP"
+                            alt="Imagen del manga de Hunter x Hunter N.1" class="producto-img">
+                        <h3 class="producto-titulo">HUNTER X HUNTER N.1</h3>
+                        <p class="producto-info"><em>¡Ya está aquí una de las series más esperadas: Hunter x Hunter de
+                                Yoshihiro Togashi!</em></p>
+                        <p class="producto-precio">$159.99</p>
+                        <button class="producto-btn" data-id="1">Agregar al carrito</button>
+                    </article>
+
+                    <article class="producto-tarjeta">
+                        <img src="https://d14d9vp3wdof84.cloudfront.net/image/589816272436/image_mmio609i556hj3ji40vr0shb4o/-S897-FWEBP"
+                            alt="Imagen del manga de Spy x Family N.2" class="producto-img">
+                        <h3 class="producto-titulo">Spy x Family N.2</h3>
+                        <p class="producto-info"><em>¡Anya fue admitida en la prestigiosa Academia Eden y es hora de
+                                poner en marcha la siguiente fase de la misión!</em></p>
+                        <p class="producto-precio">$179.00</p>
+                        <button class="producto-btn" data-id="2">Agregar al carrito</button>
+                    </article>
+
+                    <article class="producto-tarjeta">
+                        <span class="producto-badge">OfertONN</span>
+                        <img src="https://d14d9vp3wdof84.cloudfront.net/image/589816272436/image_beq94veiv54bf20ff4e2q23d6o/-S897-FWEBP"
+                            alt="Imagen del manga de One Piece N.1" class="producto-img">
+                        <h3 class="producto-titulo">One Piece N.1</h3>
+                        <p class="producto-info"><em>Sigue las aventuras de Monkey D. Luffy, un chico que sueña con ser
+                                el rey de los piratas</em></p>
+                        <div class="producto-precios-div">
+                            <p class="producto-descuento">-12%</p>
+                            <p class="producto-precio">$148.72</p>
+                            <p class="producto-precio-anterior"><s>$169.00</s></p>
+                        </div>
+                        <button class="producto-btn" data-id="3">Agregar al carrito</button>
+                    </article>
+
+                    
+                    
+                </div>
+            </div>
+
+            <div class="catalogo-contenedor" id="figuras">
+                <h3>Figuras</h3>
+                <div class="catalogo-productos">
+
+                    <article class="producto-tarjeta">
+                        <span class="producto-badge">OfertONN</span><!-- Span= elemento emn linea como texto -->
+                        <img src="https://m.media-amazon.com/images/I/616bv-qiXbL.jpg"
+                            alt="Imagen de peluche de Pochita" class="producto-img">
+                        <h3 class="producto-titulo">Peluche de Pochita tamaño real</h3>
+                        <p class="producto-info"><em>Pochita llegó para enternecer tu corazón</em></p>
+                        <div class="producto-precios-div">
+                            <p class="producto-descuento">-20%</p>
+                            <p class="producto-precio">$64.00</p>
+                            <p class="producto-precio-anterior"><s>$80.00</s></p>
+                        </div>
+                        <button class="producto-btn" data-id="4">Agregar al carrito</button>
+                    </article>
+
+                    <article class="producto-tarjeta">
+                        <img src="./img/imgReze.webp" alt="Imagen de figura nendoroid del personaje Reze"
+                            class="producto-img">
+                        <h3 class="producto-titulo">Figura Nendoroid - Reze Chainsaw Man</h3>
+                        <p class="producto-info"><em>Denji, ¿Te considerarías más un ratón de ciudad o de campo?</em>
+                        </p>
+                        <p class="producto-precio">$79.00</p>
+                        <button class="producto-btn" data-id="5">Agregar al carrito</button>
+                    </article>
+
+                    <article class="producto-tarjeta">
+                        <img src="img/imgPower.webp" alt="Imagen de figura del personaje Power" class="producto-img">
+                        <h3 class="producto-titulo">Figura Nendoroid - Power Chainsaw Man</h3>
+                        <p class="producto-info"><em>¡YA LLEGÓ POWER!</em></p>
+                        <p class="producto-precio">$87.00</p>
+                        <button class="producto-btn" data-id="6">Agregar al carrito</button>
+                    </article>
+                </div>
+            </div>
+
+            <div class="catalogo-contenedor" id="ropa">
+                <h3>Ropa</h3>
+                <div class="catalogo-productos">
+
+                    <article class="producto-tarjeta">
+                        <span class="producto-badge">OfertONN</span>
+                        <img src="https://artesublim.com/wp-content/uploads/2024/04/2-3.jpg"
+                            alt="Imagen de Sudadera de Itachi Uchiha" class="producto-img">
+                        <h3 class="producto-titulo">Sudadera de Itachi Uchiha</h3>
+                        <p class="producto-info"><em>Te falta odio Sasuke</em></p>
+                        <div class="producto-precios-div">
+                            <p class="producto-descuento">-12%</p>
+                            <p class="producto-precio">$148.72</p>
+                            <p class="producto-precio-anterior"><s>$169.00</s></p>
+                        </div>
+                        <button class="producto-btn" data-id="7">Agregar al carrito</button>
+                    </article>
+
+                    <article class="producto-tarjeta">
+                        <img src="https://m.media-amazon.com/images/I/51De917fB6L._AC_SY1000_.jpg"
+                            alt="Imagen de Sudadera de Kimetsu no Yaiba" class="producto-img">
+                        <h3 class="producto-titulo">Sudadera de Kimetsu no Yaiba</h3>
+                        <p class="producto-info"><em>¡Respiración del Agua!</em></p>
+                        <p class="producto-precio">$521.99</p>
+                        <button class="producto-btn" data-id="8">Agregar al carrito</button>
+                    </article>
+
+                    <article class="producto-tarjeta">
+                        <img src="https://resources.sears.com.mx/medios-plazavip/mkt/63b4fc95029dc_sudadera-dragon-ball-goku-claroshoppng.jpg?scale=500&qlty=75"
+                            alt="Imagen de Sudadera de Dragon Ball" class="producto-img">
+                        <h3 class="producto-titulo">Sudadera de Dragon Ball</h3>
+                        <p class="producto-info"><em>Desata tu Super Saiyajin Fase 20 con esta sudadera</em></p>
+                        <p class="producto-precio">$599.00</p>
+                        <button class="producto-btn" data-id="9">Agregar al carrito</button>
+                    </article>
+
+                </div>
+            </div>
+
+            <div class="catalogo-contenedor" id="accesorios">
+                <h3>Accesorios</h3>
+                <div class="catalogo-productos">
+
+                    <article class="producto-tarjeta">
+                        <img src="https://m.media-amazon.com/images/I/51LLAMSg1tL._AC_SX679_.jpg"
+                            alt="Imagen de Pin de Pochita" class="producto-img">
+                        <h3 class="producto-titulo">Pin de Pochita</h3>
+                        <p class="producto-info"><em>¡El poder de la motosierra en tu mochila, gorra o chamarra!</em>
+                        </p>
+                        <p class="producto-precio">$372.00</p>
+                        <button class="producto-btn" data-id="10">Agregar al carrito</button>
+                    </article>
+
+                    <article class="producto-tarjeta">
+                        <span class="producto-badge">OfertONN</span>
+                        <img src="https://m.media-amazon.com/images/I/61JCiWwddfL._AC_SX679_.jpg"
+                            alt="Imagen de stickers de Berserk " class="producto-img">
+                        <h3 class="producto-titulo">Stickers de Berserk</h3>
+                        <p class="producto-info"><em>El espadachín errante podrá estar en todo lugar (incluso puedes
+                                pegarlos en el gabinete de tu PC)</em></p>
+                        <div class="producto-precios-div">
+                            <p class="producto-descuento">-50%</p>
+                            <p class="producto-precio">$20.00</p>
+                            <p class="producto-precio-anterior"><s>$40.00</s></p>
+                        </div>
+                        <button class="producto-btn" data-id="11">Agregar al carrito</button>
+                    </article>
+
+                    <article class="producto-tarjeta">
+                        <img src="https://m.media-amazon.com/images/I/61FBCW6K58S._AC_SX679_.jpg"
+                            alt="Imagen de Reloj de bolsillo de Fullmetal Alchemist" class="producto-img">
+                        <h3 class="producto-titulo">Reloj de bolsillo de Fullmetal Alchemist</h3>
+                        <p class="producto-info"><em>¡Es un intercambio equivalente! Te daré la mitad de mi vida, así
+                                que dame la mitad de la tuya 💕</em></p>
+                        <p class="producto-precio">$328.99</p>
+                        <button class="producto-btn" data-id="12">Agregar al carrito</button>
+                    </article>
+                </div>
+            </div>
+
+
+
+
+
+        </section>
+
+
+        <section id="compra"> <!-- Proceso de compra -->
+            <h2>Proceso de compra</h2>
+            <p>Comprar en nuestra tienda es muy sencillo y seguro, solo debes seguir los siguientes pasos</p>
+
+            <div class="compra-contenedor">
+                <div class="compra-imagen">
+                    <img src="https://dzt1km7tv28ex.cloudfront.net/u/268211344094789632_35s_d.jpg"
+                        alt="Imagen del apartado de compra, es un Nendoroid de Hatsune Miku" id="compra-img">
+                </div>
+
+
+                <div class="compra-pasos">
+                    <ol id="compra-lista">
+                        <li class="compra-paso"><b>Elige el producto que desees comprar </b> - Contamos con un gran
+                            catalogo de productos,
+                            desde mangas, figuras, ¡hasta hoodies!</li>
+                        <li class="compra-paso"><b>Agrega el producto al carrito</b> - Para eso, haz clic en el botón
+                            rojo de "Agregar al
+                            carrito"</li>
+                        <li class="compra-paso"><b>Una vez terminado, revisa tu carrito</b> - Verifica todos los
+                            productos que agregaste y
+                            entra al proceso de pago</li>
+                        <li class="compra-paso"><b>Realiza el pago</b> - Los métodos de pago que aceptamos son los
+                            siguientes:
+                            <div class="lista-contenedor" id="metodos-pago">
+                                <img src="https://www.consumoteca.com/wp-content/uploads/Logo-PayPal-jpg.webp"
+                                    alt="Imagen del logo de Paypal" class="lista-contenedor-imagen">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Mercado_Pago.svg/2560px-Mercado_Pago.svg.png"
+                                    alt="Imagen del logo de Mercadopago" class="lista-contenedor-imagen">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
+                                    alt="Imagen del logo de Mastercard" class="lista-contenedor-imagen">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1200px-Visa_Inc._logo.svg.png"
+                                    alt="Imagen del logo de VISA" class="lista-contenedor-imagen">
+                            </div>
+                        </li>
+                        <li class="compra-paso"><b>Nosotros prepararemos tu pedido</b> - No te preocupes, lo que compres
+                            con nosotros llegará a salvo hasta la puerta de tu casa, trabajamos con las
+                            mejores paqueterías que hay en Agua Prieta y cuidamos hasta el más pequeñito detalle:
+                            <div class="lista-contenedor" id="paqueterias">
+                                <img src="https://cdn.worldvectorlogo.com/logos/estafeta.svg"
+                                    alt="Imagen de paquetería Estafeta" class="lista-contenedor-imagen">
+                                <img src="https://1000marcas.net/wp-content/uploads/2020/01/FedEx-logo.jpg"
+                                    alt="Imagen de paquetería Fedex" class="lista-contenedor-imagen">
+                                <img src="https://m.media-amazon.com/images/I/41MVNV00x7L._AC_UF894,1000_QL80_.jpg"
+                                    alt="Imagen de paquetería DHL" class="lista-contenedor-imagen">
+                            </div>
+                        </li>
+                        <li class="compra-paso"><b>Tiempo estimado</b> - El envío debe llegar a tu casita entre 3 a 7
+                            días hábiles
+                        </li>
+                        <li class="compra-paso"><b>Si tienes algún problema</b> - Por favor, manda mensaje al formulario
+                            que se encuentra al final del sitio
+                        </li>
+
+
+
+                    </ol>
+
+                    <p>Gracias por confiar en nosotros ;w; 💕</p>
+                </div>
+
+
+            </div>
+        </section>
+
+
+        <section id="sobre"> <!-- Sobre nosotros -->
+            <h2>Sobre nosotros</h2>
+            <p>Gracias por interesarte en nosotros ⭐</p>
+            <div class="sobre-contenedor">
+                <div class="sobre-textos">
+
+                    <p class="sobre-texto">
+                        <span class="hoshi">Hoshi-Store</span> fue fundado en diciembre de 2025, comenzamos primero con entregas a domicilio,luego
+                        poco a poco hemos ido creciendo y todos los días entrenamos para ser no una tienda, sino la
+                        mejor tienda que te dé servicio a ti.
+                    </p>
+                    <p class="sobre-texto">Nos encanta todo lo relacionado al anime, manga y cultura japonesa.</p>
+                    <p class="sobre-texto">Esta mini-empresa nació de querer compartir un poco de la cultura japonesa en
+                        Agua Prieta.</p>
+                    <p class="sobre-texto">El porque de nuestro nombre: Queriamos algo que fuera a lo que anhelamos, y
+                        todos queremos alcanzarlas: las estrellas, <span class="hoshi">Hoshi</span> significa eso, <span
+                            class="hoshi">estrella ⭐</span>, el store es porque
+                        en este momento somos una tienda, pero queremos ser en el futuro una comunidad en la que te
+                        puedas sentir comodo.</p>
+
+                </div>
+                <div class="sobre-contenedor-imagen">
+                    <img src="./img/aguaprieta.png" alt="Imagen de Agua Prieta" id="sobre-imagen">
+                </div>
+
+            </div>
+
+
+
+            <div id="equipo" class="equipo-section">
+                <h2>Te queremos presentar a las personas que forman parte del equipo</h2>
+
+                <div class="equipo-contenedor">
+                    <!-- tarjetita 1 -->
+                    <!-- txt importante para mi = article -->
+                    <article class="equipo-card">
+                        <img src="https://i.pinimg.com/736x/72/94/07/729407bac6ce89fe87c3004a070e8342.jpg"
+                            alt="Foto de perfil de Adriana" class="equipo-foto">
+                        <h3 class="equipo-nombre">Adriana</h3>
+                        <h4 class="equipo-ubicacion">Agua Prieta, Sonora</h4>
+                        <p class="equipo-rol">"CEO"</p>
+
+                        <a href="https://github.com/Mor4n/proyecto-Final-modulo-2.github.io"  target="_blank" class="equipo-boton">Github</a>
+                        <a href="https://linkedin.com/" target="_blank" class="equipo-boton">Linkedin</a>
+                        <a href="https://twitter.com/"  target="_blank" class="equipo-boton">Twitter</a>
+                        <a href="https://www.instagram.com/" target="_blank" class="equipo-boton">Instagram</a>
+                        <a href="https://www.youtube.com/" target="_blank" class="equipo-boton">Youtube</a>
+                    </article>
+                    <!-- tarjetita 2 -->
+                    <article class="equipo-card">
+                        <img src="https://pbs.twimg.com/media/EohdvKnXYAAGK9V.png" alt="Foto de perfil"
+                            class="equipo-foto">
+                        <h3 class="equipo-nombre">Reyna</h3>
+                        <h4 class="equipo-ubicacion">Agua Prieta, Sonora</h4>
+                        <p class="equipo-rol">"Marketing"</p>
+
+                        <a href="https://github.com/Mor4n/proyecto-Final-modulo-2.github.io"  target="_blank" class="equipo-boton">Github</a>
+                        <a href="https://linkedin.com/" target="_blank" class="equipo-boton">Linkedin</a>
+                        <a href="https://twitter.com/"  target="_blank" class="equipo-boton">Twitter</a>
+                        <a href="https://www.instagram.com/" target="_blank" class="equipo-boton">Instagram</a>
+                        <a href="https://www.youtube.com/" target="_blank" class="equipo-boton">Youtube</a>
+                    </article>
+
+                    <!-- tarjetita 3 -->
+
+                    <article class="equipo-card">
+                        <img src="https://pbs.twimg.com/media/GtmQPzVacAAZCsU?format=jpg&name=900x900"
+                            alt="Foto de perfil" class="equipo-foto">
+                        <h3 class="equipo-nombre">Brayan Moran</h3>
+                        <h4 class="equipo-ubicacion">Agua Prieta, Sonora</h4>
+                        <p class="equipo-rol">"Programador"</p>
+
+                        <a href="https://github.com/Mor4n/proyecto-Final-modulo-2.github.io"  target="_blank" class="equipo-boton">Github</a>
+                        <a href="https://linkedin.com/" target="_blank" class="equipo-boton">Linkedin</a>
+                        <a href="https://twitter.com/"  target="_blank" class="equipo-boton">Twitter</a>
+                        <a href="https://www.instagram.com/" target="_blank" class="equipo-boton">Instagram</a>
+                        <a href="https://www.youtube.com/" target="_blank" class="equipo-boton">Youtube</a>
+                    </article>
+                </div>
+            </div>
+
+        </section>
+
+
+
+        <!-- sección como de opiniones de la gente, como reseñas -->
+
+        <section id="fotos" class="fotos-section">
+            <h2>Fotos de la comunidad</h2>
+            <p>Esta es una galería de fotos de los productos que nuestra comunidad ha adquirido, tu también puedes ser parte de esto, añade tu foto en el formulario del final y te añadiremos 💕</p>
+
+            <div class="fotos-contenedor">
+                    <div class="foto f1"></div>
+                    <div class="foto f2"></div>
+                    <div class="foto f3"></div>
+                    <div class="foto f4"></div>
+                    <div class="foto f5"></div>
+                    <div class="foto f6"></div>
+                    <div class="foto f7"></div>
+                    <div class="foto f8"></div>
+                    <div class="foto f9"></div>
+                    <div class="foto f10"></div>
+            </div>
+
+        </section>
+
+
+        <section id="contacto" class="contacto-section"> <!-- Contacto -->
+            
+
+            <div class="contacto-form-div">
+                <form class="contacto-form">
+                    <h3>Mandar ticket</h3>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" placeholder="Ingrese su nombre">
+
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" id="correo" placeholder="Ingresa tu correo de la forma: correo@correo.com">
+
+                    <label for="archivo" id="input-arch">Toca aquí para añadir una imagen o archivo</label>
+                    <input type="file" id="archivo">
+
+                    <label for="solicitud">Mensaje</label>
+                    <textarea id="solicitud" placeholder="Ingresa tu mensaje para la solicitud aquí "></textarea>
+
+
+
+                    <button type="submit">Enviar mensaje</button>
+                </form>
+            </div>
+
+            <div class="contacto-info">
+                <h2>Contacto</h2>
+                <p>Si tienes alguna duda respecto a nuestros productos o necesitas soporte técnico por algún pedido, o simplemente, quieres enviarnos una foto para añadirla a la galería, llena el formulario que está aquí a la <span class="hoshi">izquierda</span> o por
+                    favor, envíanos un mensaje por los siguientes medios:</p>
+                <p><b>Correo electrónico:</b> tiendita@tiendita.com</p>
+                <p><b>Número de teléfono:</b> 632-350-3000</p>
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <footer id="footer"><!-- pie d pagina -->
+        <section class="footer-section">
+            <h2 class="footer-titulo"> Síguenos en tooodas nuestras redes sociales</h2>
+            <ul class="footer-lista">
+                <li><a href="https://www.facebook.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/960px-2021_Facebook_icon.svg.png" alt="Imagen de logo de Facebook"></a></li>
+                <li><a href="https://tiktok.com/" target="_blank"><img src="https://static.vecteezy.com/system/resources/thumbnails/023/986/492/small/tiktok-logo-tiktok-logo-transparent-tiktok-icon-transparent-free-free-png.png" alt="Imagen de logo de Tiktok"></a></li>
+                <li><a href="https://x.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/960px-Logo_of_Twitter.svg.png" alt="Imagen de logo de Twitter que ahorita es X" ></a></li>
+                <li><a href="https://www.youtube.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/YouTube_full-color_icon_%282024%29.svg/1280px-YouTube_full-color_icon_%282024%29.svg.png" alt="Imagen de logo de Youtube" srcset=""></a></li>
+            </ul>
+        </section>
+
+        <p id="footer-copyright">&copy; Diciembre 2025 - Derechos reservados a Hoshi-Store </p>
+    </footer>
+    <a href="#" class="boton-whatsapp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/960px-WhatsApp.svg.png" alt="Imagen de logo de Whatsapp" ></a>
+    <a href="#encabezado" class="boton-subir">
+        <img src="./img/flecha.png" alt="Botón de subir hacia arriba" id="img-boton-subir">
+    </a>
+
+    <script type="module" src="./script/app.js"></script>
+</body>
+
+</html>

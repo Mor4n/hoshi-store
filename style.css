@@ -1,0 +1,1391 @@
+:root{
+        --fondo-blanco: #ffffff;
+    --borde: #d9e2ec;
+    --texto: #1f2937;
+    --eliminar: #dc2626;
+}
+
+/* Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body{
+    /* Fuente de google fonts que puse en HTML */
+    font-family: "Open Sans", sans-serif;
+    color: #2D3436;
+    background-color: #F4F6F8;
+}
+
+/* limitación que me faltaba q-q no sé pq no estaba */
+
+
+header,main{
+    max-width: 100vw;  
+    margin: 0 auto;
+}
+
+/* la parte que está hasta arriba de envios gratis */
+
+.top-banner{
+    background-color: #e60012;
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+/* el menu de navegacion*/
+
+
+#navegacion{ 
+    padding: 10px 35px;
+    background-color: #FFFFFF;
+    max-width: 100vw; /*para que combine con el max-width en general de todo*/
+    margin: 0 auto; /*revisar esto */
+    position: sticky; 
+    /* ya no static, ya es stickuy */
+    top: 0;/*queremos que se quede pegado en la parte de arriba, le ponemos top 0 porque 0 es el elemento padre*/
+    z-index: 1000; 
+    /* El z-index se pone lo mas alto posible para qu NADA se superponga al nav */
+    
+
+
+    /* Agregando flexbox */
+    /* como es contenedor padre de toda nuestra barra de navegacion haecmos */
+    display: flex;
+    /* quiero que el contenedor se vuelva flexible, las cosas como el h1 o el li ahora se van hacia la derecha */
+    justify-content: space-between; /*alineacion eje principal (horizontal)*/
+    align-items: center;/*alineacion eje cruzado (vert)*/
+    flex-wrap: wrap; /*permite salto de linea para pantallas pequeñas*/
+
+    border-bottom: 4px solid #e60012;
+}
+
+#logo{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 5%; 
+}
+#logo-img{
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+}
+
+.navegacion-lista{
+    list-style-type: none;
+    /* vuelvo flexible al contenedor padre */
+    display: flex; 
+    gap: 20px;
+    align-items: center;
+
+}
+
+
+.navegacion-lista a{
+    color: #000000;
+    font-weight: bold;
+    text-decoration: none;
+    transition: .25s;
+}
+
+.navegacion-lista a:hover{
+    color: #e60012;
+    
+}
+
+/* partecita del buscador */
+
+.buscar-contenedor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+}
+#buscar-input{
+    width: 100%;
+    margin-right: 10px;
+    padding: 10px;
+    border: 2px #000000 solid;
+}
+#buscar-boton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    background-color: #e60012;
+    width: 50px;
+    cursor: pointer;
+    padding: 6px;
+    border: 2px solid #000000;
+}
+#buscar-boton:hover{
+    transition: ease .60s;
+    background-color: #940410;
+}
+#buscar-imagen{
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+}
+/* carrito de compras */
+.carrito-contenedor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+}
+
+#carrito-boton{
+    display: flex;
+    background: none;
+    background-color: #e60012;
+    width: 50px;
+    justify-content: center;
+    cursor: pointer;
+    padding: 6px;
+    border: 2px solid #000000;
+}
+
+#carrito-boton:hover{
+    background-color: #940410;
+}
+
+#carrito-compras{
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+}
+
+/* hacer el menu desplegable del carrito al hacer hover */
+.carrito-contenedor #lista-compras-contenedor{
+    display: none;
+}
+
+.carrito-contenedor:hover #lista-compras-contenedor{
+    display: block;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    border: 1px solid gray;
+    box-shadow: 0 14px 35px rgba(15, 23, 42, 0.18);
+    
+    top:100%;
+    z-index: 1;
+    padding: 20px;
+    min-height: 400px;
+    min-width: 300px;
+}
+
+/* tabla de compras */
+
+#lista-compras-contenedor h2{
+    color: var(--encabezado);
+    font-size: 1.15rem;
+    margin-bottom: 14px;
+}
+
+#lista-compras {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--borde);
+    background-color: #fff;
+    max-height: 500px; 
+    display: block;
+    overflow-y: auto;
+}
+
+#lista-compras th{
+    font-size: 12px;
+    text-align: left;
+    padding: 12px 10px;
+
+}
+
+#lista-compras td{
+    padding: 10px;
+    border-bottom: 1px solid var(--borde);
+    color: var(--texto);
+    vertical-align: middle;
+}
+
+
+
+/* productos */
+
+
+.lista-producto-imagen{
+    width: 100px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.lista-producto-nombre{
+    font-weight: 500;
+
+}
+
+.lista-producto-precio{
+    font-weight: 700;
+    color: #0f766e;
+
+}
+
+.lista-producto-borrar{
+    border: none;
+    background-color: var(--eliminar);
+    color: #fff;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    
+
+}
+
+
+#vaciar-lista{
+    margin-top: 14px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--eliminar);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+@media (max-width: 640px){
+    .carrito-contenedor:hover #lista-compras-contenedor{
+        right: -12px;
+        width: 86vw;
+    }
+
+    #lista-compras th,
+    #lista-compras td{
+        padding: 8px 6px;
+        font-size: 10px;
+    }
+
+    .lista-producto-imagen{
+        width: 64px;
+        height: 44px;
+    }
+
+}
+
+
+
+/* el vídeo que está abajo del nav */
+
+#video-contenedor{
+    display: flex;
+    justify-content: center;
+    height:  80vh;
+    position: relative;
+}
+
+#video-grisaceo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000098;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#video-texto{
+    margin: 0 21%;
+    color: #000000;
+    padding: 15px 30px;
+    background-color: #FEFEFE;
+    font-size: 50px;
+    border: 4px black solid;
+    font-weight: bold;
+    box-shadow: 10px 10px 0px rgb(255, 0, 0);
+}
+
+
+
+#video-tienda{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+/* Espaciado para que no quede todo junto */
+section{
+    background-color: white;
+    margin: 30px 20px;
+    padding: 25px;
+    text-align: center; 
+}
+
+section h2{
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+
+section h2:hover{
+    text-decoration: underline red;
+    text-decoration-thickness: 5px;
+}
+
+section p{
+    font-size: 20px;
+}
+
+/* parte del catalogo de productos */
+
+.catalogo-contenedor{
+
+    margin: 2%;
+}
+.catalogo-contenedor h3{
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.catalogo-productos{
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.catalogo-categorias{
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    justify-content: center;
+
+
+}
+.catalogo-categoria{
+    cursor: pointer;
+    padding: 20px;
+    border: 4px solid black;
+    margin: 20px;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgb(0, 0, 0) 7px 10px 0px;
+    transition: box-shadow .25s ease,transform .25s ease ; 
+}
+.catalogo-categoria:hover{
+    transition: .25s ease;
+    box-shadow: 10px 10px 0px rgb(255, 0, 0);
+    transform: translate(-2px, -2px);
+}
+.catalogo-categoria-texto{
+    font-weight: 900;
+}
+
+/* partecita de los productos (la tarjeta en si) */
+
+.producto-tarjeta{
+    background-color:#FFFFFF;
+    text-align: center;
+    margin:35px;
+    
+    overflow: hidden;
+    border: 4px solid #000000;
+    box-shadow: 7px 10px 0px #000000;
+    transition: box-shadow .25s ease,transform .25s ease ; 
+
+    padding-bottom: 15px;
+    /* Se pone position relative para que la badge absoluta se meta adentro */
+    position: relative;
+
+    flex: 1 1 240px;
+    /* ocupa minimo 240px en lo que pueda encoger o crecer */
+}
+.producto-tarjeta:hover{
+    transform: translateY(-10px);
+    box-shadow: 10px 10px 0px #e60012;
+    transition: .25s ease;
+}
+
+
+
+
+.producto-img{
+    /* creo que esto es para que tome todo 
+    el tamaño de la tarjeta */
+    width: 100%; 
+    height: 200px;
+    padding: 30px;
+    background-color: #fefefe;
+    border-bottom: 4px solid black;
+    /* object-fit solo es para imagenes
+    
+    cover:va a cubrir toda la cubierta sin importar de que este
+    lo corta */
+    object-fit: contain;
+    
+}
+
+.producto-titulo{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 15px 15px 0 15px;
+}
+
+.producto-info{
+    font-size: 14px;
+    color: #940410;
+    padding:10px 0px;
+    margin: 5px;
+}
+
+/* este para que se puedan poner a la par producto precio y el descuento */
+.producto-precios-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.producto-descuento{
+    color: red;
+    font-size: 25px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+}
+
+.producto-precio{
+    color: #e60012;
+    font-weight: bold;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 23px;
+}
+.producto-precio-anterior{
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    margin: 5px 0px 15px 15px;
+    color: rgb(80, 79, 79);
+}
+
+.producto-btn{
+    width: 70%;
+
+    background-color: #e60012;
+    color: whitesmoke;
+    border: 3px solid black;
+    /* aqui si es recomendable poner un padding pq
+    no tiene mucho espacio  */
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    
+    /* esto es para que el hover se vea un 
+    poquito más lento de animación */
+    transition:0.3s; 
+
+    font-size: medium;
+    font-weight: 700;
+}
+
+.producto-btn:hover{
+    background-color: #000000;
+    transition: .25s ease;
+    transform: translate(-4px,-4px);
+    box-shadow: 6px 6px 0px #e60012;
+}
+
+/* OFERTOON */
+.producto-badge{
+    position: absolute;
+    background-color: #000000;
+    top: 0px;
+    left: 0px;
+    padding: 6.5px 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+/* seccion de compra */
+#compra{
+
+}
+.compra-contenedor{
+    margin: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.compra-imagen{
+    align-items: center;
+    margin-right: 25px;
+    flex: 0 0 auto;
+}
+
+#compra-img{
+    box-shadow: 6px 6px 0px #000000;
+    width: 100%;
+    max-width: 600px;
+}
+#compra-img:hover{   
+    transform: translate(-2px,-2px);
+    transition: .35s ease;
+    box-shadow: 6px 6px 0px #e60012;
+}
+
+.compra-pasos{
+    
+    flex: 1 1 300px;
+}
+#compra-lista{
+}
+.compra-paso{
+    text-align: justify;
+    margin: 20px;
+    font-size: 17px;
+}
+.compra-paso b{
+    color: #940410;
+}
+
+
+
+.lista-contenedor{
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.lista-contenedor-imagen{
+    width: 80px;
+    object-fit: contain;
+}
+.lista-contenedor-imagen:hover{
+    border-bottom: 4px red solid;
+    transition: .2s ;
+}
+
+
+
+
+/* Sección de sobre nosotros */
+
+.sobre-contenedor{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sobre-contenedor-imagen{
+    margin: 30px;
+    display: flex;
+    flex: 0 0 auto;
+
+}
+#sobre-imagen{
+    box-shadow: 6px 6px 0px #000000;
+    width: 100%;
+    max-width: 600px;
+    object-fit: cover;
+}
+
+#sobre-imagen:hover{   
+    transform: translate(-2px,-2px);
+    transition: .35s ease;
+    box-shadow: 6px 6px 0px #ffb7c5;
+}
+
+.sobre-textos{
+    flex: 1 1 300px;
+    margin:30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.sobre-texto{
+    padding-bottom: 20px;
+    font-size: 20px;
+}
+/* esto es solo para cambiarle d color a dos textos xd */
+.hoshi{
+    color: #bbbb00;
+}
+.hoshi:hover{
+    font-weight: 900;
+    color: #e60012;
+    transform: translate(-5px,-5px);
+    transition: .25s ease;
+}
+
+/* partecita de personas que forman parte del tim, está abajo esto de sobre nosotros pero en el mismo sobre nosotros */
+.equipo{
+    background-color: rgb(44, 44, 39);
+    text-align: center;
+    width: 35rem;
+    margin: 10rem 0 0 10rem;
+    border-radius: 1rem;
+    color: white;
+    
+}
+
+.equipo-section{
+    text-align: center;
+    padding: 40px 25px;
+}
+.equipo-section h2{
+    margin-bottom: 15px;
+}
+.equipo-section p{
+    margin: 0 auto 20px;
+     /* poner maximo de texto con max-width  */
+    max-width: 700px; 
+
+}
+
+.equipo-contenedor{
+    /*  ponerlo horizontal com flex  */
+    display: flex;
+
+    /*  ponerlo que se vayan hacia abajo  */
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    /* espacio entre tarjetas  */
+    gap: 40px;
+
+    margin-top: 20px;
+}
+
+.equipo-card{
+    border: 4px solid #000000;
+    background-color: #ffffff;
+    width: 280px;
+    padding: 60px 20px 30px ;
+    box-shadow: 6px 6px 0px #6d6d6d;
+    text-align: center;
+    /* /* flexbox interno de la tarjeta  */
+    display: flex;
+    /* /* no quiero que esté como row por default, sino como column  */
+    flex-direction: column;
+    /* /* centrarlo de forma interna tmb  */
+    align-items: center;
+
+    /* /* esto es para hacer el circulito arriba, el padre debe ser relative  */
+    position: relative;
+    margin-top:100px
+}
+.equipo-card:hover{
+    transform: translate(-5px,-5px);
+    transition: .25s ease;
+    box-shadow: 6px 6px 0px #e60012;
+}
+.equipo-foto{
+    
+    width: 140px;
+    height: 140px;
+    /* para no deformar la imagen:  */
+    object-fit: contain;
+
+     /* hacerla circular  */
+    border-radius: 50%;
+    border: 3px solid rgb(0, 0, 0);
+
+     /* esto para moverlo arriba  */
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.equipo-nombre{
+    font-size: 19px;
+    margin-top: 15px;
+    color: #2D3436;
+}
+
+.equipo-ubicacion{
+    font-size: 19px;
+    margin: 10px;
+}
+
+.equipo-rol{
+    margin-bottom: 1rem;
+    color: #940410;
+    font-style: italic;
+}
+
+.equipo-boton{
+    cursor: pointer;
+    background-color: #ffffff;
+    border: 2px solid black;
+    color: #000000;
+    width: 100%;
+    padding: 10px 0;
+    font-size: medium;
+    font-weight: bold;
+    margin: 12px 0 12px 0;
+    text-decoration: none;
+    box-shadow: 2px 2px 0px #2d3436;
+}
+.equipo-boton:hover{
+    transform: translate(-2px,-2px);
+    transition: .25s ease;
+    background-color: #e60012;
+    color: #FEFEFE;
+}
+
+/* botones laterales */
+
+.boton-whatsapp{
+    padding: 7px;
+    border: 2px solid #000000;
+    color: white;
+    background-color: #e60012;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    box-shadow: 6px 6px 0px #00000040;
+    
+    /* transition para el hover */
+    transition: .2s ease;
+
+    bottom: 13px;
+    right: 25px;
+    position: fixed;
+
+    /* se pone el z index para que se pueda visualizar FRENTE DE TOD */
+    z-index: 1500;
+    
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.boton-whatsapp img{
+    width: 40px;
+    object-fit: contain;
+}
+.boton-whatsapp:hover{
+    background-color: rgb(28, 90, 90);
+    transform: scale(1.1);
+}
+
+.boton-subir{
+    width: 50px;
+    height: 50px;
+    background-color: #e60012;
+    border: 2px solid #000000;
+    display: block;
+    box-shadow: 6px 6px 0px #00000040;
+    transition: .2s ease;
+    bottom: 13px;
+    left: 25px;
+    z-index: 1500;
+    position: fixed;
+    cursor: pointer;
+}
+
+.boton-subir:hover{
+    background-color: rgb(0, 0, 0);
+    box-shadow: 12px 12px 0px #e60012;
+    transform: translate(-5px,-5px);
+}
+
+#img-boton-subir{
+    width: 80%;
+    height: 80%;
+    margin-left: 5px;
+    margin-top: 2px;
+    object-fit: cover;
+}
+
+/* partecita de grid de galeria */
+
+.fotos-contenedor{
+    margin: 25px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 160px;
+    gap: 20px;
+}
+
+.foto{
+    background-size: cover;
+    background-position: center;
+    border: 4px solid black;
+}
+.foto:hover{
+    transform: translate(-5px,-5px);
+    transition: .25s ease;
+    box-shadow: 6px 6px 0 #e60012;
+}
+.f1{
+    grid-column: 1/3;
+    grid-row:1/3;
+    background-image: url("https://m.media-amazon.com/images/I/81ylo5YO8nL.jpg");
+}
+.f2{
+    grid-column:1/3;
+    grid-row:3/4;
+    background-image: url("https://m.media-amazon.com/images/I/81w8MvB1oYL.jpg");
+}
+.f3{    
+    grid-column:3/4;
+    grid-row:3/4;
+    background-image: url("https://m.media-amazon.com/images/I/61Wws0KQYLL.jpg");
+}
+.f4{    
+    grid-column:3/5;
+    grid-row:1/3;
+    background-image: url("https://m.media-amazon.com/images/I/719Dl2i7wqL.jpg");
+}
+.f5{    
+    grid-column: 5/6;
+    grid-row:1/3;
+    background-image: url("https://m.media-amazon.com/images/I/71S0S44jfdL.jpg");
+}
+.f6{    
+    grid-column:1/4;
+    grid-row:4/6;
+    background-image: url("https://m.media-amazon.com/images/I/71K-Domw0GL.jpg");
+}
+.f7{    
+    grid-column:6/7;
+    grid-row:1/6;
+    background-image: url("https://m.media-amazon.com/images/I/71IB+Lt9mML.jpg");
+}
+.f8{    
+    grid-column: 4/6;
+    grid-row:4/6;
+    background-image: url("https://m.media-amazon.com/images/I/61lbgO-+rQL.jpg");
+}
+.f9{    
+    grid-column:4/5;
+    grid-row:3/4;
+    background-image: url("https://m.media-amazon.com/images/I/71JiDCSkPdL.jpg");
+}
+.f10{    
+    grid-column:5/6;
+    grid-row:3/4;
+    background-image: url("https://m.media-amazon.com/images/I/81YU-OdCHNL.jpg");
+}
+
+/* Parte de contacto o formulario */
+
+#contacto{
+    display: flex;
+    gap:20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    padding-left: 100px;
+    padding-bottom: 20px;
+
+}
+
+
+.contacto-info{
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.contacto-info p{
+    margin: 20px;
+}
+.contacto-info b{
+    color: #940410;
+}
+/* el flex-grow en 1 y flex shrin en 1, flex basis en 270px
+en todo caso, 1 es q crezca normal o se encoja normal, entonces 1 - 1 es
+para que crezcan y se encojan de igual forma los elementos
+*/
+.contacto-info,
+.contacto-form-div{
+    flex: 1 1 280px;
+}
+
+.contacto-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    
+    background-color: #ffffff;
+    border: 4px solid #000000;
+    color: #2D3436;
+    padding: 20px;
+}
+.contacto-form:hover{
+    box-shadow: 6px 6px 0px #bbbb00;
+    transform: translate(-6px,-6px);
+    transition: .35s ease;
+
+}
+.contacto-form label{
+    font-weight: 700;
+}
+.contacto-form input {
+    height: 40px;
+    width: 320px;
+    border: 2px solid black;
+    padding: 10px;
+}
+.contacto-form input:hover{
+    border: 2px solid #940410;
+}
+
+input[type="file"]{
+    display: none;
+}
+#input-arch{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 39%;
+    border: 2px solid #000000;
+    cursor: pointer;
+    background-color: #ffffff;
+    font-size: 13px;
+    color: #000000;
+    box-shadow: 6px 6px 0px #2d3436;
+}
+#input-arch:hover{
+    background-color: #e60012;
+    color: #F4F6F8;
+    transition: .25s ease;
+    transform: translate(-2px,-2px);
+
+
+}
+
+#solicitud{
+    width: 320px;
+    height: 90px;
+    padding: 10px;
+    border: 2px solid black;
+    font-family: "Open Sans", sans-serif;
+}
+#solicitud:hover{
+    border: 2px solid #940410;
+
+}
+
+.contacto-form button{
+    height: 40px;
+    width: 320px;
+    background-color: #e60012;
+    font-weight: 700;
+    border: 2px solid black;
+    color: white;
+    
+}
+.contacto-form button:hover{
+    background-color: #000000;
+    transition: .25s ease;
+    transform: translate(-4px,-4px);
+    box-shadow: 6px 6px 0px #e60012;
+    
+}
+
+
+
+
+/* pie de pagina */
+footer{
+    background-color: #1a1a1a;
+    color: #FEFEFE;
+    padding-bottom: 25px;
+}
+.footer-section{
+    background-color: #1a1a1a;
+}
+/* lista y enlaces de footer */
+.footer-lista{
+    list-style-type: none;
+    font-size: 16px;
+    display: flex;
+    margin: 25px;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-lista img{
+    border-radius: 20px;
+    width: 40px;
+    object-fit: contain;
+
+}
+
+
+.footer-lista img:hover{
+    transform: translate(-5px,-5px);
+    transition: .25s ease;
+    box-shadow: 6px 6px 0px #e60012;
+}
+
+#footer-copyright{
+    text-align: center;
+    font-size: 18px;
+}
+
+/* el diseño responsivo: va al final x lo general */
+
+
+/* esto es para corregir que se rompe mi nav en este tamaño */
+@media screen and (max-width:1300px) {
+    .top-banner{
+        font-size: 18px;
+        padding: 8px 12px;
+    }
+    #navegacion{
+        justify-content: center;
+        gap:12px;
+        padding: 12px 14px;
+    }
+    
+    #logo{
+        width: 20%;
+    }
+
+    .navegacion-lista{
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap:12px 16px;
+        font-size: 18px;
+
+    }
+
+    .buscar-contenedor{
+        width: 73%;
+    }
+
+    .catalogo-categoria{
+        width: 40%;
+    }
+
+    .producto-precios-div{
+        flex-wrap: wrap;
+    }
+    .producto-btn{
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    #contacto{
+        padding-left: 0;
+    }
+    #footer{
+        padding-bottom: 80px;
+    }
+    
+}
+
+/* laptop mediana */
+@media screen and (max-width:1080px) {
+    .compra-contenedor{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .sobre-contenedor{
+        align-items: center;
+        justify-content: center;
+    }
+    
+}
+
+
+/* tablet masomenos */
+@media screen and (max-width:900px) {
+#navegacion{
+    padding: 0px 14px;
+}
+#video-texto{
+    font-size: 40px;
+}
+.equipo-card{
+flex: 1 1 240px;
+}
+
+}
+
+/* telefono */
+@media screen and (max-width:768px) {
+    #video-texto{
+    font-size: 30px;
+}
+  .equipo-card{
+    flex: 1 1 100%;
+  }
+
+
+  
+.f1{
+    grid-column: 1/3;
+    grid-row:1/3;
+}
+.f2{
+    grid-column:1/4;
+    grid-row:3/4;
+}
+.f3{    
+    grid-column:4/7;
+    grid-row:3/4;
+}
+.f4{    
+    grid-column:3/5;
+    grid-row:1/3;
+}
+.f5{ 
+    grid-column: 5/7;
+    grid-row:1/3;
+}
+.f6{    
+    grid-column:1/3;
+    grid-row:4/6;
+}
+.f7{    
+    grid-column:6/7;
+    grid-row:4/6;
+}
+.f8{    
+    grid-column: 3/5;
+    grid-row:4/6;
+}
+.f9{    
+    grid-column:1/7;
+    grid-row:6/7;
+}
+.f10{   
+    grid-column:5/6;
+    grid-row:4/6;
+}
+
+
+}
+
+
+/* menos d 600 */
+
+@media screen and (max-width:600px) {
+
+     #video-texto{
+    font-size: 15px;
+}
+
+#manga h3{
+    margin-top: 30px;
+}
+
+    
+.catalogo-categoria{
+    width: 35%;
+}
+.catalogo-categoria-texto{
+    font-size: 15px;
+}
+
+.catalogo-contenedor h3{
+    font-size: 20px;
+}
+
+.producto-tarjeta{
+    flex:0 0 100%;
+}
+.producto-precio{
+    font-size: 18px;
+}
+.producto-descuento{
+    font-size: 18px;
+}
+
+
+
+
+#sobre-imagen{
+        max-width: 300px;
+    }
+
+    
+
+.f1{
+    grid-column: 1/3;
+    grid-row:1/3;
+}
+.f2{
+    grid-column:1/4;
+    grid-row:3/4;
+}
+.f3{    
+    grid-column:4/7;
+    grid-row:3/4;
+}
+.f4{    
+    grid-column:3/5;
+    grid-row:1/3;
+}
+.f5{ 
+    grid-column: 5/7;
+    grid-row:1/3;
+}
+.f6{    
+    grid-column:1/4;
+    grid-row:4/5;
+}
+.f7{ 
+    grid-column:5/7;
+    grid-row:5/6;
+}
+.f8{    
+    grid-column: 4/7;
+    grid-row:4/5;
+}
+.f9{    
+    grid-column:1/7;
+    grid-row:6/7;
+}
+.f10{   
+    grid-column:1/5;
+    grid-row:5/6;
+}
+
+
+
+}
+
+
+
+
+
+
+/* Tal vez deberia de borrarlo pero lo quiero dejar como notas para el futuro :( 
+
+.equipo-section{
+    text-align: center;
+    padding: 40px 25px;
+}
+.equipo-section h2{
+    margin-bottom: 15px;
+}
+.equipo-section p{
+    margin: 0 auto 20px;
+    /* poner maximo de texto con max-width 
+    max-width: 700px; 
+
+}
+
+.equipo-contenedor{
+    /* ponerlo horizontal com flex 
+    display: flex;
+
+    /* ponerlo que se vayan hacia abajo 
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    /* espacio entre tarjetas 
+    gap: 40px;
+
+    margin-top: 20px;
+}
+
+.equipo-card{
+    border: 4px solid #000000;
+    background-color: #ffffff;
+    width: 280px;
+    padding: 60px 20px 30px ;
+    box-shadow: 6px 6px 0px #6d6d6d;
+    text-align: center;
+    /* flexbox interno de la tarjeta 
+    display: flex;
+    /* no quiero que esté como row por default, sino como column 
+    flex-direction: column;
+    /* centrarlo de forma interna tmb 
+    align-items: center;
+
+    /* esto es para hacer el circulito arriba, el padre debe ser relative 
+    position: relative;
+    margin-top:100px
+}
+.equipo-card:hover{
+    box-shadow: 7px 12px 0px #bbbb00;
+    transform: translate(-2px,-2px);
+    transition: .35s ease;
+
+}
+
+.equipo-foto{
+
+    width: 140px;
+    height: 140px;
+    /* para no deformar la imagen: 
+    object-fit: cover;
+
+    /* hacerla circular 
+    border-radius: 50%;
+    border: 3px solid rgb(0, 0, 0);
+
+    /* esto para moverlo arriba 
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.equipo-titulo{
+    margin-top: 15px;
+    color: #2D3436;
+    font-size: 19px;
+}
+
+.equipo-rol{
+    font-size: 14px;
+    color: #2d3436;
+    margin: 5px;
+}
+
+
+.equipo-descripcion{
+    font-size: 14px;
+    color: #000000;
+    margin: 5px;
+    line-height: 1;
+
+} */
+
+
+
+/* botón flotante posicion fixed */
