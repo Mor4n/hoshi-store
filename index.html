@@ -85,21 +85,26 @@
             <p>Compra productos que vienen de Japón, directo a la puerta de tu casa!</p>
 
             <div class="catalogo-categorias">
-                <article class="catalogo-categoria">
-                    <p class="catalogo-categoria-texto">Manga</p>
+                <article class="catalogo-categoria" id="filtro_todo">
+                    <a class="catalogo-categoria-texto">Todos</a>
                 </article>
-                <article class="catalogo-categoria">
-                    <p class="catalogo-categoria-texto">Figuras</p>
+                <article class="catalogo-categoria" id="filtro_manga">
+                    <a class="catalogo-categoria-texto">Manga</a>
                 </article>
-                <article class="catalogo-categoria">
-                    <p class="catalogo-categoria-texto">Ropa</p>
+                <article class="catalogo-categoria" id="filtro_figuras">
+                    <a class="catalogo-categoria-texto">Figuras</a>
                 </article>
-                <article class="catalogo-categoria">
-                    <p class="catalogo-categoria-texto">Accesorios</p>
+                <article class="catalogo-categoria" id="filtro_ropa">
+                    <a class="catalogo-categoria-texto">Ropa</a>
+                </article>
+                <article class="catalogo-categoria" id="filtro_accesorios">
+                    <a class="catalogo-categoria-texto">Accesorios</a>
                 </article>
             </div>
 
-            <div class="catalogo-contenedor" id="manga">
+            <div class="catalogo-total">
+
+                <div class="catalogo-contenedor" id="manga">
                 <h3>Manga</h3>
                 <div class="catalogo-productos">
 
@@ -259,6 +264,8 @@
                         <button class="producto-btn" data-id="12">Agregar al carrito</button>
                     </article>
                 </div>
+            </div>
+
             </div>
 
 
@@ -503,6 +510,7 @@
         <img src="./img/flecha.png" alt="Botón de subir hacia arriba" id="img-boton-subir">
     </a>
 
+    <script type="module" src="./script/catalogo.js"></script>
     <script type="module" src="./script/app.js"></script>
     <script type="module" src="./script/formulario.js"></script>
 </body>
