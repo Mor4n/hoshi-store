@@ -1,7 +1,7 @@
 
 
 const lista_compras_contenedor = document.querySelector("#lista-compras-contenedor");
-const catalogo_productos = document.querySelectorAll(".catalogo-productos");
+const catalogo_total = document.querySelector(".catalogo-total");
 const contenedor_productos = document.querySelector("#compras-tbody");
 const vaciar_lista = document.querySelector("#vaciar-lista");
 let listaDeCompras = [];
@@ -112,11 +112,15 @@ const obtenerProducto = (e) =>{
 // para inicializar los event listeners
 export const iniciarEvents = () =>{
     
+     
     // a cada producto del listado, si se da clic, va a poderse agregar a la lista
-    catalogo_productos.forEach((catalogo) => {
-        // se le tiene que poner forEach porque .querySelector es solo 1 (el primero), en el caso de querySelectorAll es una lista, por lo tanto tengo que recorrer cada uno para darles este event listener
-        catalogo.addEventListener("click", obtenerProducto);
-    });
+    // catalogo_productos.forEach((catalogo) => {
+         // se le tiene que poner forEach porque .querySelector es solo 1 (el primero), en el caso de querySelectorAll es una lista, por lo tanto tengo que recorrer cada uno para darles este event listener
+    //     catalogo.addEventListener("click", obtenerProducto);
+    // });
+    
+    // Delegación en contenedor estable para que funcione con catálogo dinámico.
+    catalogo_total.addEventListener("click", obtenerProducto);
     contenedor_productos.addEventListener("click", eliminarProducto);
     vaciar_lista.addEventListener("click", () =>{
         // reseteo de arreglo
