@@ -19,7 +19,6 @@ const eliminarProducto = (e) =>{
         const productoId = e.target.getAttribute("data-id");
         
         listaDeCompras = listaDeCompras.filter( producto => producto.id_producto!==productoId );
-        sincronizarLocalStorage();
         mostrarLista();
     }
 
@@ -39,7 +38,6 @@ const agregarProducto = (producto) =>{
     }
     else{
         listaDeCompras.push(producto);
-        sincronizarLocalStorage();
         console.log(listaDeCompras);
         mostrarLista();
     }
@@ -79,6 +77,11 @@ const mostrarLista= () =>{
 
         </tr>
         `);
+
+        // Lo pongo aqui porque tanto cuando elimino o agrego algo al carrito de compras, siempre se renderiza
+        // asi me ahorro 3 lineas de codigo al ponerlo en lugar de ponerlo en vaciar carrito, eliminar o en agregar producto 
+        sincronizarLocalStorage();
+
 
 }
 
@@ -132,7 +135,6 @@ export const iniciarEvents = () =>{
     vaciar_lista.addEventListener("click", () =>{
         // reseteo de arreglo
         listaDeCompras = [];
-        sincronizarLocalStorage();
         mostrarLista();
     });
     document.addEventListener("DOMContentLoaded",()=>{
