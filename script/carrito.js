@@ -19,7 +19,7 @@ const eliminarProducto = (e) =>{
         const productoId = e.target.getAttribute("data-id");
         
         listaDeCompras = listaDeCompras.filter( producto => producto.id_producto!==productoId );
-        
+        sincronizarLocalStorage();
         mostrarLista();
     }
 
@@ -39,11 +39,18 @@ const agregarProducto = (producto) =>{
     }
     else{
         listaDeCompras.push(producto);
+        sincronizarLocalStorage();
         console.log(listaDeCompras);
         mostrarLista();
     }
 
 }
+
+const sincronizarLocalStorage= ()=>{
+
+    localStorage.setItem("compras",JSON.stringify(listaDeCompras));
+}
+
 
 
 const mostrarLista= () =>{
@@ -125,8 +132,15 @@ export const iniciarEvents = () =>{
     vaciar_lista.addEventListener("click", () =>{
         // reseteo de arreglo
         listaDeCompras = [];
+        sincronizarLocalStorage();
         mostrarLista();
     });
+    document.addEventListener("DOMContentLoaded",()=>{
+
+        listaDeCompras = JSON.parse(localStorage.getItem("compras"))||[];
+        mostrarLista();
+
+    })
     
 }
 
